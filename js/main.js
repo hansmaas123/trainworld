@@ -14,7 +14,7 @@ const lightsOn = () => {
     const tunnelSwitch = document.querySelector(".tunnel__button");
     tunnelSwitch.src = "./public/assets/img/tunnelbuttonup.png"
     document.querySelector(".tunnel__hide").style.display = "inline"
-    gsap.to(".tunnel__dark--wrapper", {opacity:0, duration:1})
+    gsap.to(".tunnel__dark--wrapper", {opacity:0, duration:2})
 }
 const chapterOneAnimation = () => {
     gsap.from(".chapterone__image", {
@@ -33,7 +33,38 @@ const chapterOneAnimation = () => {
             trigger: ".chapterone__wrapper",
             start: "top 20%",
             end: "bottom 0%",
-            pin: true,
+            scrub: 1
+        }
+    })
+    gsap.to(".chapterone__image", {
+        y: 300,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".chapterone__wrapper",
+            start: "top 19%",
+            end: "bottom 19%",
+            scrub: 1
+        }
+    })
+    gsap.to(".chapterone__title", {
+        y: -300,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".chapterone__wrapper",
+            start: "top 19%",
+            end: "bottom 19%",
+            scrub: 1
+        }
+    })
+}
+const textAnimator = () => {
+    gsap.from(".ch1__p1--textwrapper", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch1__p1--textwrapper",
+            start: "top 60%",
+            end: "bottom 50%%",
             scrub: 1
         }
     })
@@ -64,9 +95,10 @@ const tunnelIllustion = () => {
 
 const init = () => {
     hamburgerMenu();
+    chapterOneAnimation();
+    textAnimator();
     tunnelIllustion();
     tunnelSwitchHandler();
-    chapterOneAnimation();
 }
 
 init();

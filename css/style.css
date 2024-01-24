@@ -231,10 +231,6 @@ body {
 
 
 
-
-
-
-
 .intro {
   font-family: var(--titlefont);
   text-align: center;
@@ -568,11 +564,12 @@ body {
 .tunnel__hide {
   display: none;
 }
-.ch1__p4{
+
+.ch1__p4 {
   margin-top: -40rem;
 }
 
-.ch1__p4--title{
+.ch1__p4--title {
   padding: 1rem;
   width: fit-content;
   font-family: var(--titlefont);
@@ -582,6 +579,7 @@ body {
   background-position: 1.2rem 100%;
   background-size: 12rem auto;
 }
+
 .ch1__p4--text {
   color: var(--maincolor);
   font-size: var(--s1);
@@ -591,7 +589,8 @@ body {
   padding: 1rem;
   margin-bottom: 2rem;
 }
-.ch1__p4--textmonster{
+
+.ch1__p4--textmonster {
   color: transparent;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: var(--seccolorblue);
@@ -600,18 +599,21 @@ body {
   font-weight: 800;
   letter-spacing: 0.1375rem;
 }
-.ch1__p4--grid{
+
+.ch1__p4--grid {
   display: grid;
   grid-template-columns: 8% 92%;
   grid-template-rows: 1fr;
 }
-.ch1__p4--empty{
+
+.ch1__p4--empty {
   grid-column: 1;
   grid-row: 1;
   border: solid var(--bordersize) var(--bordercolor);
   border-right: none;
 }
-.ch1__p4--animationwrapper{
+
+.ch1__p4--animationwrapper {
   grid-column: 2;
   grid-row: 1;
   width: 92vw;
@@ -620,33 +622,38 @@ body {
   align-items: center;
   border: solid var(--bordersize) var(--bordercolor);
   padding: 2rem 0rem;
+  z-index: -1;
 }
-.ch1__p5{
+
+.ch1__p5 {
   padding: 1rem;
   margin-top: 3rem;
 }
-.ch1__p5--text{
+
+.ch1__p5--text {
   color: var(--maincolor);
-    font-size: var(--s1);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 124%;
+  font-size: var(--s1);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 124%;
 }
-.ch1__p5--title{
+
+.ch1__p5--title {
   color: var(--seccolorblue);
-    font-family: var(--titlefont);
-    font-size: 2.5rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 117%;
-    letter-spacing: 0.175rem;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-    background-image: url("./../public/assets/img/ch1p5bg.svg");
-    background-repeat: no-repeat;
-    background-position: 0% 100%;
+  font-family: var(--titlefont);
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 117%;
+  letter-spacing: 0.175rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  background-image: url("./../public/assets/img/ch1p5bg.svg");
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
 }
-.ch1__p5--titlespecial{
+
+.ch1__p5--titlespecial {
   color: var(--seccoloryel);
 }
 
