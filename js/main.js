@@ -57,6 +57,8 @@ const chapterOneAnimation = () => {
         }
     })
 }
+
+
 const textAnimator = () => {
     gsap.from(".ch1__p1--textwrapper", {
         y: 100,
@@ -68,8 +70,31 @@ const textAnimator = () => {
             scrub: 1
         }
     })
+    gsap.from(".chapter1__part2--wrapper", {
+        x: 100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".chapter1__part2--wrapper",
+            start: "top 60%",
+            end: "bottom 50%%",
+            scrub: 1
+        }
+    })
+    // gsap.from(".ch1__p5", {
+    //     y: 100,
+    //     opacity: 0,
+    //     scrollTrigger: {
+    //         trigger: ".ch1__p5",
+    //         start: "top 60%",
+    //         end: "bottom 50%%",
+    //         scrub: 1
+    //     }
+    // })
+    
 }
-const tunnelIllustion = () => {
+
+
+const tunnelIllusion = () => {
     const tl = gsap.timeline();
     tl.to(".ch1__p3--tunnel", {
         scale: 10,
@@ -93,12 +118,33 @@ const tunnelIllustion = () => {
     })
 }
 
+const railwayLineHorizontalMove = () => {
+    gsap.to(".ch1__p6--linewrapper", {
+        x: -400,
+        scrollTrigger: {
+            trigger: ".ch1__p6--title",
+            start: "top 50%",
+            end: "bottom 0%",
+            pin: true,
+            scrub: 1
+        }
+    })
+}
+
+
+
+
+
+
 const init = () => {
+    gsap.registerPlugin(ScrollTrigger);
+
     hamburgerMenu();
     chapterOneAnimation();
     textAnimator();
-    tunnelIllustion();
+    tunnelIllusion();
     tunnelSwitchHandler();
+    railwayLineHorizontalMove();
 }
 
 init();
