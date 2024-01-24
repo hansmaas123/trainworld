@@ -14,8 +14,8 @@ const disableScroll = () => {
     gsap.to(".body", {
         scrollTrigger: {
             trigger: ".tunnel__dark--wrapper",
-            start: "bottom 100%",
-            end: "bottom 95%",
+            start: "bottom 120%",
+            end: "bottom 115%",
             onLeave: function () {
                 document.body.classList.add("disable-scrolling");
             }
@@ -32,8 +32,8 @@ const lightsOn = () => {
     scroll = false;
     const tunnelSwitch = document.querySelector(".tunnel__button");
     tunnelSwitch.src = "./public/assets/img/tunnelbuttonup.png";
-    document.querySelector(".tunnel__hidebg").style.opacity = "100";
-    document.querySelector(".tunnel__hide").style.backgroundColor = "#F5EFE7";
+    document.querySelector(".tunnel__hide").style.opacity = "100";
+    document.querySelector(".ch1__p3--tunnel").style.opacity = "0%"
     gsap.to(".tunnel__dark--wrapper", { opacity: 0, duration: 2 });
 }
 const chapterOneAnimation = () => {
@@ -41,7 +41,7 @@ const chapterOneAnimation = () => {
         x: 400,
         scrollTrigger: {
             trigger: ".chapterone__wrapper",
-            start: "top 45%",
+            start: "top 20%",
             end: "bottom 0%",
             pin: true,
             scrub: 1
@@ -51,7 +51,7 @@ const chapterOneAnimation = () => {
         x: -400,
         scrollTrigger: {
             trigger: ".chapterone__wrapper",
-            start: "top 45%",
+            start: "top 20%",
             end: "bottom 0%",
             scrub: 1
         }
@@ -61,8 +61,8 @@ const chapterOneAnimation = () => {
         opacity: 0,
         scrollTrigger: {
             trigger: ".chapterone__wrapper",
-            start: "top 30%",
-            end: "bottom 30%",
+            start: "top 10%",
+            end: "bottom 10%",
             scrub: 1
         }
     })
@@ -71,8 +71,8 @@ const chapterOneAnimation = () => {
         opacity: 0,
         scrollTrigger: {
             trigger: ".chapterone__wrapper",
-            start: "top 30%",
-            end: "bottom 30%",
+            start: "top 10%",
+            end: "bottom 10%",
             scrub: 1
         }
     })
@@ -120,18 +120,18 @@ const tunnelIllusion = () => {
         scrollTrigger: {
             trigger: ".ch1__p3--tunnel",
             start: "top 50%",
-            end: "bottom -50%",
+            end: "bottom -35%",
             pin: true,
-            scrub: 1,
+            scrub: 1
         }
     })
         .to(".tunnel__dark--wrapper", {
-            visibility: "visible",
+            opacity: "100%",
             scrollTrigger: {
                 trigger: ".tunnel__dark--text",
-                start: "top 25%",
+                start: "top 40%",
+                end:"top 39%",
                 pin: ".tunnel__dark--wrapper",
-                scrub: 1
             }
         })
 }
@@ -142,11 +142,49 @@ const railwayLineHorizontalMove = () => {
         scrollTrigger: {
             trigger: ".railwayline__wrapper--all",
             start: "top 40%",
-            end: "bottom  0",
+            end: "bottom 0",
             scrub: 1,
             pin: ".ch1__p6--linewrapper",
         }
     })
+}
+
+const quizButtonHandler = () => {
+    const quizButton = document.querySelector(".quiz__button");
+    quizButton.addEventListener("click", playQuiz);
+}
+const playQuiz = () => {
+    gsap.to(".quiz__title", {marginTop: 0})
+    gsap.to(".quiz__text", {opacity: 0})
+    gsap.to(".quiz__button", {opacity: 0})
+    const quizAnimation = document.querySelector(".quiz__animation");
+    quizAnimation.play();
+    quizAnimation.addEventListener("complete", quizQuestions);
+}
+const quizQuestions = () => {
+    const quizText = document.querySelector(".quiz__text");
+    gsap.to(".quiz__text", { opacity: 1 })
+    quizText.innerHTML = "What did the people in Belgium think of the construction of high speed lines?"
+    quizText.style.fontWeight = "600";
+    quizText.style.textTransform = "uppercase";
+
+    const button1 = document.createElement(`button`);
+    const button2 = document.createElement(`button`);
+    const speed = document.createElement(`p`);
+
+    button1.classList.add("quiz__button--style");
+    button2.classList.add("quiz__button--style2");
+    speed.classList.add("speed__style");
+
+    button1.innerHTML = "Controversial"
+    button2.innerHTML = "Practical"
+    speed.innerHTML = "0 KM/H"
+
+    const quizButtonWrapper = document.querySelector(".quiz__button--wrapper");
+    quizButtonWrapper.appendChild(button1);
+    quizButtonWrapper.appendChild(button2);
+    const speedWrapper = document.querySelector(".speed__wrapper");
+    speedWrapper.appendChild(speed);
 }
 
 
@@ -165,12 +203,13 @@ const init = () => {
     chapterOneAnimation();
     textAnimator();
     tunnelIllusion();
-    setInterval(intervalFunction, 100)
-    window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-    }
+    // setInterval(intervalFunction, 100)
+    // window.onbeforeunload = function () {
+    //     window.scrollTo(0, 0);
+    // }
     tunnelSwitchHandler();
     railwayLineHorizontalMove();
+    quizButtonHandler();
 }
 
 init();
