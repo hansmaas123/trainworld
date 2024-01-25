@@ -1,6 +1,7 @@
 import "/css/style.css";
 
 let scroll = true;
+let stop = false;
 let speedCount = 0;
 
 const quizText = document.querySelector(".quiz__text");
@@ -25,31 +26,33 @@ const tunnelSwitchHandler = () => {
     const tunnelSwitch = document.querySelector(".tunnel__button");
     tunnelSwitch.addEventListener(`click`, lightsOn);
 }
-const disableScroll = () => {
-    gsap.to(".body", {
-        scrollTrigger: {
-            trigger: ".tunnel__dark--wrapper",
-            start: "bottom 120%",
-            end: "bottom 115%",
-            onLeave: function () {
-                document.body.classList.add("disable-scrolling");
-            }
-        }
-    })
-}
-const enableScroll = () => {
-    document.body.classList.remove("disable-scrolling");
-    console.log("init werkt")
+// const disableScroll = () => {
+//     gsap.to(".body", {
+//         scrollTrigger: {
+//             trigger: ".tunnel__dark--wrapper",
+//             start: "bottom 120%",
+//             end: "bottom 115%",
+//             onLeave: function () {
+//                 document.body.classList.add("disable-scrolling");
+//             }
+//         }
+//     })
+// }
+// const enableScroll = () => {
+//     document.body.classList.remove("disable-scrolling");
+//     console.log("init werkt")
 
-}
+// }
 
 const lightsOn = () => {
     scroll = false;
     const tunnelSwitch = document.querySelector(".tunnel__button");
+    document.body.style.backgroundColor = "var(--mainbgcolor)";
     tunnelSwitch.src = "./public/assets/img/tunnelbuttonup.png";
     document.querySelector(".tunnel__hide").style.opacity = "100";
     document.querySelector(".ch1__p3--tunnel").style.opacity = "0%"
     gsap.to(".tunnel__dark--wrapper", { opacity: 0, duration: 2 });
+    document.body.classList.remove("disable-scrolling");
 }
 const chapterOneAnimation = () => {
     gsap.from(".chapterone__image", {
@@ -105,31 +108,30 @@ const textAnimator = () => {
             scrub: 1
         }
     })
-    gsap.from(".chapter1__part2--wrapper", {
-        x: 100,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: ".chapter1__part2--wrapper",
-            start: "top 80%",
-            end: "bottom 80%",
-            scrub: 1
-        }
-    })
-    gsap.from(".ch1__p5", {
-        y: 100,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: ".ch1__p5",
-            start: "top 60%",
-            end: "bottom 50%",
-            scrub: 1
-        }
-    })
+    // gsap.from(".ch1__p2--contentwrapper", {
+    //     y: 100,
+    //     opacity: 0,
+    //     scrollTrigger: {
+    //         trigger: ".chapter1__part2--wrapper",
+    //         start: "top 80%",
+    //         end: "bottom 80%",
+    //         scrub: 1
+    //     }
+    // })
+    // gsap.from(".ch1__p5", {
+    //     y: 100,
+    //     opacity: 0,
+    //     scrollTrigger: {
+    //         trigger: ".ch1__p5",
+    //         start: "top 60%",
+    //         end: "bottom 50%",
+    //         scrub: 1
+    //     }
+    // })
 
 }
 const tunnelIllusion = () => {
-    const tl = gsap.timeline();
-    tl.to(".ch1__p3--tunnel", {
+    gsap.to(".ch1__p3--tunnel", {
         scale: 10,
         opacity: "100%",
         scrollTrigger: {
@@ -137,18 +139,32 @@ const tunnelIllusion = () => {
             start: "top 50%",
             end: "bottom -35%",
             pin: true,
-            scrub: 1
+            scrub: 1,
+            onLeave: function () {
+                document.querySelector(".tunnel__dark--wrapper").style.opacity = "100%";
+                document.body.classList.add("disable-scrolling");
+                document.body.style.backgroundColor = "#010101";
+            },
+            onEnterBack: self => self.disable()
         }
     })
-        .to(".tunnel__dark--wrapper", {
-            opacity: "100%",
-            scrollTrigger: {
-                trigger: ".tunnel__dark--text",
-                start: "top 40%",
-                end:"top 39%",
-                pin: ".tunnel__dark--wrapper",
-            }
-        })
+    // if (scroll === true){
+
+    //     gsap.to(".tunnel__dark--wrapper", {
+    //         opacity: "100%",
+    //         scrollTrigger: {
+    //             trigger: ".tunnel__dark--text",
+    //             start: "top 40%",
+    //             end:"top 39%",
+    //             pin: ".tunnel__dark--wrapper",
+    //             onLeave: function () {
+    //                 document.body.classList.add("disable-scrolling");
+    //             },
+    //             onLeaveBack: self => self.disable()
+    //         }
+    //     })
+    // } 
+    
 }
 
 const railwayLineHorizontalMove = () => {
@@ -272,24 +288,65 @@ const quizEnd = () => {
 const chapterTwoAnimation = () => {
     gsap.from(".ch2__img1", {
         opacity: 0,
+        y: -100,
         scrollTrigger: {
-            trigger: ".ch2",
-            start: "top 80%",
-            end: "bottom 40%",
-            pin: true,
+            trigger: ".ch2__title--wrapper",
+            start: "top 25%",
+            end: "bottom 10%",
+            pin: ".ch2",
             scrub: 1
         }
     })
+    gsap.from(".ch2__img2", {
+        opacity: 0,
+        y: 100,
+        scrollTrigger: {
+            trigger: ".ch2__title--wrapper",
+            start: "top 25%",
+            end: "bottom 20%",
+            scrub: 1
+        }
+    })
+    gsap.from(".ch2__title", {
+        x: 400,
+        scrollTrigger: {
+            trigger: ".ch2__title--wrapper",
+            start: "top 25%",
+            end: "bottom 20%",
+            scrub: 1
+        }
+    })
+
+    // gsap.to(".ch2__img1", {
+    //     x: 400,
+    //     opacity: 0,
+    //     scrollTrigger: {
+    //         trigger: ".ch2",
+    //         start: "top 15%",
+    //         end: "bottom 10%",
+    //         scrub: 1
+    //     }
+    // })
+    // gsap.to(".ch2__img2", {
+    //     x: -400,
+    //     opacity: 0,
+    //     scrollTrigger: {
+    //         trigger: ".ch2",
+    //         start: "top 15%",
+    //         end: "bottom 10%",
+    //         scrub: 1
+    //     }
+    // })
 }
 
 
-const intervalFunction = () => {
-    if (scroll === true) {
-        disableScroll();
-    } else if (scroll === false) {
-        enableScroll()
-    }
-}
+// const intervalFunction = () => {
+//     if (scroll === true) {
+//         disableScroll();
+//     } else if (scroll === false) {
+//         enableScroll()
+//     }
+// }
 
 const init = () => {
     gsap.registerPlugin(ScrollTrigger);
@@ -297,7 +354,7 @@ const init = () => {
     chapterOneAnimation();
     textAnimator();
     tunnelIllusion();
-    setInterval(intervalFunction, 100)
+    // setInterval(intervalFunction, 100)
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     }
@@ -308,3 +365,6 @@ const init = () => {
 }
 
 init();
+
+
+//command z till here
