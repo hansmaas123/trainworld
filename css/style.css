@@ -880,7 +880,7 @@ body {
   height: 90vh;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 90vh 10vh;
+  grid-template-rows: 70vh 30vh;
 }
 .quiz__title{
     color: var(--maincolor);
@@ -931,13 +931,13 @@ body {
   background-color: var(--seccolorblue);
   color: var(--mainbgcolor);
   padding: 1rem 2rem;
-  width: 15rem;
+  width: 12rem;
   border-radius: 10px;
   border-style: none;
   color: #F5EFE7;
     text-align: center;
     font-family: var(--bodyfont);
-    font-size: var(--s2);
+    font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: 132%;
@@ -951,8 +951,8 @@ body {
   color: #F5EFE7;
   text-align: center;
   font-family: var(--bodyfont);
-  font-size: var(--s2);
-  width: 15rem;
+  font-size: 20px;
+  width: 12rem;
   font-style: normal;
   font-weight: 600;
   line-height: 132%;
@@ -976,7 +976,7 @@ body {
 .speed__wrapper{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   font-size: var(--s3);
   font-weight: 600;
   grid-row: 2;

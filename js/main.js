@@ -1,6 +1,18 @@
 import "/css/style.css";
 
 let scroll = true;
+let speedCount = 0;
+
+const quizText = document.querySelector(".quiz__text");
+
+const button1 = document.createElement(`button`);
+const button2 = document.createElement(`button`);
+const speed = document.createElement(`p`);
+
+button1.classList.add("quiz__button--style");
+button2.classList.add("quiz__button--style2");
+speed.classList.add("speed__style");
+
 const hamburgerMenu = () => {
     document.querySelector('.hamburger').addEventListener('click', () => {
         document.querySelector('.nav__wrapper').classList.toggle('expanded');
@@ -159,34 +171,78 @@ const playQuiz = () => {
     gsap.to(".quiz__button", {opacity: 0})
     const quizAnimation = document.querySelector(".quiz__animation");
     quizAnimation.play();
-    quizAnimation.addEventListener("complete", quizQuestions);
+    quizAnimation.addEventListener("complete", quizQuestionOne);
 }
-const quizQuestions = () => {
-    const quizText = document.querySelector(".quiz__text");
+const quizQuestionOne = () => {
     gsap.to(".quiz__text", { opacity: 1 })
+    gsap.to(".quiz__text", { marginBottom: 0 })
     quizText.innerHTML = "What did the people in Belgium think of the construction of high speed lines?"
     quizText.style.fontWeight = "600";
     quizText.style.textTransform = "uppercase";
 
-    const button1 = document.createElement(`button`);
-    const button2 = document.createElement(`button`);
-    const speed = document.createElement(`p`);
-
-    button1.classList.add("quiz__button--style");
-    button2.classList.add("quiz__button--style2");
-    speed.classList.add("speed__style");
+    
 
     button1.innerHTML = "Controversial"
     button2.innerHTML = "Practical"
-    speed.innerHTML = "0 KM/H"
+    speed.innerHTML = speedCount+ " KM/H";
 
     const quizButtonWrapper = document.querySelector(".quiz__button--wrapper");
     quizButtonWrapper.appendChild(button1);
     quizButtonWrapper.appendChild(button2);
     const speedWrapper = document.querySelector(".speed__wrapper");
     speedWrapper.appendChild(speed);
+
+    button1.addEventListener("click", answerRightOne);
+    button2.addEventListener("click", quizQuestionTwo);
+}
+    const answerRightOne = () => {
+        speedCount += 100;
+        quizQuestionTwo();
+    }
+    
+    
+    const quizQuestionTwo = () => {
+        quizText.innerHTML = "How much did the first full 300 km/h high-speed line network in Europe cost?"
+        button1.innerHTML = "4 Billion Euro"
+        button2.innerHTML = "5 Billion Euro"
+        speed.innerHTML = speedCount + " KM/H";
+        
+        button1.removeEventListener("click", answerRightOne);
+        button2.removeEventListener("click", quizQuestionTwo);
+        
+        button1.addEventListener("click", quizQuestionThree);
+        button2.addEventListener("click", answerRightTwo);
+    }
+    const answerRightTwo = () => {
+        speedCount += 100;
+        quizQuestionThree();
+    }
+const quizQuestionThree = () => {
+    quizText.innerHTML = "How long is the Channel Tunnel?"
+    button1.innerHTML = "50 KM"
+    button2.innerHTML = "80 KM"
+    speed.innerHTML = speedCount + " KM/H";
+
+    button1.removeEventListener("click", quizQuestionThree);
+    button2.removeEventListener("click", answerRightTwo);
+
+    button1.addEventListener("click", answerRightThree);
+    button2.addEventListener("click", quizQuestionFour);
 }
 
+    const answerRightThree = () => {
+        speedCount += 100;
+        quizQuestionFour();
+    }
+const quizQuestionFour = () => {
+    quizText.innerHTML = "Which city was connected to Chênée with a high-speed line on 15 December 2002??"
+    button1.innerHTML = "Walhorn"
+    button2.innerHTML = "Liège"
+    speed.innerHTML = speedCount + " KM/H";
+
+    button1.removeEventListener("click", quizQuestionThree);
+    button2.removeEventListener("click", answerRightTwo);
+}
 
 
 const intervalFunction = () => {
