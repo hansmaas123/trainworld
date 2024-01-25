@@ -4,6 +4,9 @@ let scroll = true;
 let speedCount = 0;
 
 const quizText = document.querySelector(".quiz__text");
+const speedWrapper = document.querySelector(".speed__wrapper");
+const speedWrapperWrapper = document.querySelector(".speed__wrapper--wrapper");
+const changeGridQuiz = document.querySelector(".ch1__p8");
 
 const button1 = document.createElement(`button`);
 const button2 = document.createElement(`button`);
@@ -230,18 +233,41 @@ const quizQuestionThree = () => {
     button2.addEventListener("click", quizQuestionFour);
 }
 
-    const answerRightThree = () => {
-        speedCount += 100;
-        quizQuestionFour();
-    }
+const answerRightThree = () => {
+    speedCount += 100;
+    quizQuestionFour();
+}
 const quizQuestionFour = () => {
-    quizText.innerHTML = "Which city was connected to Chênée with a high-speed line on 15 December 2002??"
+    quizText.innerHTML = "Which city was connected to Chênée with a high-speed line on 15 December 2002?"
     button1.innerHTML = "Walhorn"
     button2.innerHTML = "Liège"
     speed.innerHTML = speedCount + " KM/H";
-
+    
     button1.removeEventListener("click", quizQuestionThree);
     button2.removeEventListener("click", answerRightTwo);
+    
+    button1.addEventListener("click", answerRightFour);
+    button2.addEventListener("click", quizEnd);
+    
+}
+const answerRightFour = () => {
+    speedCount += 100;
+    quizEnd();
+}
+const quizEnd = () => {
+    button1.style.opacity = 0;
+    button2.style.opacity = 0;
+    speed.classList.add("speed__style--end");
+    
+    speedWrapper.classList.add("speed__wrapper--end");
+    changeGridQuiz.classList.add(("change__grid"));
+    if(speedCount > 200){
+        quizText.innerHTML = "Congrats! You drove fast enough and passed the barrier in time!"
+        speedWrapperWrapper.classList.add("speed__wrapper--endgoodbg");
+    } else {
+        quizText.innerHTML = "Sadly, you drove too slow and wouldn’t pass the railway barrier in time. This resulted into pulling the brakes"
+        speedWrapperWrapper.classList.add("speed__wrapper--endbadbg");
+    }
 }
 
 
