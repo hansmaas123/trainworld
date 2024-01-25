@@ -51,7 +51,7 @@ const lightsOn = () => {
     tunnelSwitch.src = "./public/assets/img/tunnelbuttonup.png";
     document.querySelector(".tunnel__hide").style.opacity = "100";
     document.querySelector(".ch1__p3--tunnel").style.opacity = "0%"
-    gsap.to(".tunnel__dark--wrapper", { opacity: 0, duration: 2 });
+    document.querySelector(".tunnel__dark--wrapper").style.visibility = "hidden";
     document.body.classList.remove("disable-scrolling");
 }
 const chapterOneAnimation = () => {
@@ -141,7 +141,7 @@ const tunnelIllusion = () => {
             pin: true,
             scrub: 1,
             onLeave: function () {
-                document.querySelector(".tunnel__dark--wrapper").style.opacity = "100%";
+                document.querySelector(".tunnel__dark--wrapper").style.visibility = "visible";
                 document.body.classList.add("disable-scrolling");
                 document.body.style.backgroundColor = "#010101";
             },
