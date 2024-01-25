@@ -269,6 +269,18 @@ const quizEnd = () => {
         speedWrapperWrapper.classList.add("speed__wrapper--endbadbg");
     }
 }
+const chapterTwoAnimation = () => {
+    gsap.from(".ch2__img1", {
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch2",
+            start: "top 80%",
+            end: "bottom 40%",
+            pin: true,
+            scrub: 1
+        }
+    })
+}
 
 
 const intervalFunction = () => {
@@ -285,13 +297,14 @@ const init = () => {
     chapterOneAnimation();
     textAnimator();
     tunnelIllusion();
-    // setInterval(intervalFunction, 100)
-    // window.onbeforeunload = function () {
-    //     window.scrollTo(0, 0);
-    // }
+    setInterval(intervalFunction, 100)
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    }
     tunnelSwitchHandler();
     railwayLineHorizontalMove();
     quizButtonHandler();
+    chapterTwoAnimation();
 }
 
 init();
