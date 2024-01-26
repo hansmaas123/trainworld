@@ -386,6 +386,8 @@ body {
 
 .visually-hidden {
   visibility: hidden;
+  height: 0;
+  width: 0;
 }
 
 .textstar {
@@ -1490,16 +1492,166 @@ color: var(--seccolorblue);
 
 
 
+.ch3__p2{
+  background-color: var(--seccolorblue);
+  border: solid var(--bordersize) #4E87B3;
+}
 
+.ch3__p2--text{
+  color: var(--mainbgcolor);
+    font-size: var(--s1);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.ch3__p2--textwrapper{
+  padding: 3rem 1rem;
+  border: solid var(--bordersize) #4E87B3;
+  border-top: none;
+}
+.ch3__p2--year{
+  width: 67vw;
+}
+.ch3__p2--img{
+  padding: 4rem 0rem;
+  border: solid var(--bordersize) #4E87B3;
+  border-top: none;
+  border-bottom: none;
+  width: 100vw;
+  background-image: url("./../public/assets/img/lighttrainbg.svg");
+  background-repeat: no-repeat;
+  background-position: 0% 40%;
+}
 
+.ch3__p3{
+  border: solid var(--bordersize) var(--bordercolor);
+  border-top: none;
+  padding: 4rem 1rem;
+}
+.ch3__p3--text{
+  color: var(--maincolor);
+  font-size: var(--s1);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.ch3__p4{
+  padding: 4rem 1rem;
+  border-left: solid var(--bordersize) var(--bordercolor);
+  border-right: solid var(--bordersize) var(--bordercolor);
+  margin-bottom: 7rem;
+}
+.ch3__p4--title{
+  color: var(--seccolorblue);
+  font-family: var(--titlefont);
+  font-size: var(--s3);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 2rem;
+}
+.ch3__p4--text{
+  color: var(--maincolor);
+  font-size: var(--s1);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.seats{
+  width: 100vw;
+  overflow: hidden;
+}
+.seats__wrapper{
+  width: 100vw;
+  overflow: hidden;
+}
+.ch3__p5{
+  padding: 4rem 1rem;
+  border: solid var(--bordersize) var(--bordercolor);
+  border-top: none;
+}
+.ch3__p5--text{
+  color: var(--maincolor);
+    font-size: var(--s1);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.ch3__p6{
+  padding: 4rem 0rem;
+}
+.ch3__p6--titlewrapperwrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  background-image: url("./../public/assets/img/ch3p6bg.svg");
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  padding: 2rem 00rem;
+}
+.ch3__p6--titlewrapper{
+  width: 20rem;
+}
+.ch3__p6--title1{
+  color: transparent;
+-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--seccolorblue);
+  font-family: "Articulat CF";
+  font-size: var(--s3);
+  font-style: normal;
+  font-weight: 800;
+  line-height: 69%;
+  letter-spacing: 0.025rem;
+  margin-bottom: 1rem;
+}
+.ch3__p6--title2{
+  color: var(--seccolorblue);
+  font-family: "Articulat CF";
+  font-size: var(--s5);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 69%;
+  letter-spacing: 0.04375rem;
+  text-align: right;
+}
+.ch3__p6--title2wrapper{ 
+  display: flex; 
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+.ticketbutton__wrapper{
+  display: flex;
+  justify-content: center;
+}
 
-
-
-
-
-
-
-
+.ch3__p6--text{
+  color: var(--maincolor);
+    font-size: var(--s1);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0rem 1rem;
+    margin-bottom: 1rem;
+}
+.ch3__p6--text2{
+  margin-bottom: 5rem;
+}
+.nextprev__story--wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+  margin-bottom: 4rem;
+}
+.nextprev__story{
+  color: var(--maincolor);
+    font-size: var(--s1);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
 @media screen and (min-width: 920px) {
 

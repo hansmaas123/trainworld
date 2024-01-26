@@ -57,9 +57,7 @@ const tunnelSwitchHandler = () => {
 
 const lightsOn = () => {
     scroll = false;
-    const tunnelSwitch = document.querySelector(".tunnel__button");
     document.body.style.backgroundColor = "var(--mainbgcolor)";
-    tunnelSwitch.src = "./public/assets/img/tunnelbuttonup.png";
     document.querySelector(".tunnel__hide").style.opacity = "100";
     document.querySelector(".ch1__p3--tunnel").style.opacity = "0%"
     document.querySelector(".tunnel__dark--wrapper").style.visibility = "hidden";
@@ -474,6 +472,19 @@ const trackProgress4 = () => {
     }
 }
 
+const seatsMove = () => {
+    gsap.to(".seats", {
+        scale: 8,
+        scrollTrigger: {
+            trigger: ".seats",
+            start: "bottom bottom",
+            end: "top 0%",
+            pin: true,
+            // scrub: true
+        }
+    })
+}
+
 const init = () => {
     gsap.registerPlugin(ScrollTrigger);
     hamburgerMenu();
@@ -489,6 +500,7 @@ const init = () => {
     quizButtonHandler();
     chapterTwoAnimation();
     trackRepairHandler();
+    seatsMove();
 }
 
 init();
