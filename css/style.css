@@ -247,7 +247,7 @@ body {
 }
 
 .introbg__before1 {
-  background-image: url('./../public/assets/img/introbg1.svg');
+  background-image: url('./../assets/img/introbg1.svg');
   background-repeat: no-repeat;
   background-position: 0% 100%;
   padding-bottom: 0.2rem;
@@ -255,32 +255,42 @@ body {
 
 .introbg__before2 {
   padding-top: 3rem;
-  background-image: url('./../public/assets/img/introbg2.svg');
+  background-image: url('./../assets/img/introbg2.svg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
 .introbg__before3 {
-  background-image: url('./../public/assets/img/introbg3.svg');
+  background-image: url('./../assets/img/introbg3.svg');
   background-repeat: no-repeat;
   background-position: 0% 100%;
   padding-bottom: 0.2rem;
 }
 
 .introbg__before4 {
-  background-image: url('./../public/assets/img/introbg4.svg');
+  background-image: url('./../assets/img/introbg4.svg');
   background-repeat: no-repeat;
   padding-right: .7rem;
   background-position: 100% 55%;
 }
 
 .introbg__before5 {
-  background-image: url('./../public/assets/img/introbg5.svg');
+  background-image: url('./../assets/img/introbg5.svg');
   background-repeat: no-repeat;
   background-position: 100% 80%;
   padding-right: 0.5rem;
 }
-
+.railgame__rail{
+  animation: clickable 1s ease-in-out infinite;
+}
+@keyframes clickable {
+  0%, 100%{
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(110%);
+  }
+}
 
 .chapterone__wrapper {
   display: grid;
@@ -300,7 +310,7 @@ body {
 }
 
 .chapterone__title--bg {
-  background-image: url("./../public/assets/img/chapter1bg.svg");
+  background-image: url("./../assets/img/chapter1bg.svg");
   background-repeat: no-repeat;
   background-position: 0% 100%;
 }
@@ -311,7 +321,7 @@ body {
   font-size: var(--s3);
   font-weight: 600;
   padding: 6rem 1rem;
-  background-image: url("./../public/assets/img/chapter1.svg");
+  background-image: url("./../assets/img/chapter1.svg");
   background-repeat: no-repeat;
   background-position: 0% 0%;
 }
@@ -516,7 +526,7 @@ body {
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.175rem;
-  background-image: url("./../public/assets/img/ch1p3bg.svg");
+  background-image: url("./../assets/img/ch1p3bg.svg");
   background-repeat: no-repeat;
   background-position: 50% 100%;
   margin-bottom: 2rem;
@@ -608,7 +618,7 @@ body {
   width: fit-content;
   font-family: var(--titlefont);
   font-size: var(--s3);
-  background-image: url("./../public/assets/img/ch1p3bg.svg");
+  background-image: url("./../assets/img/ch1p3bg.svg");
   background-repeat: no-repeat;
   background-position: 1.2rem 100%;
   background-size: 12rem auto;
@@ -683,7 +693,7 @@ body {
   letter-spacing: 0.175rem;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
-  background-image: url("./../public/assets/img/ch1p5bg.svg");
+  background-image: url("./../assets/img/ch1p5bg.svg");
   background-repeat: no-repeat;
   background-position: 0% 100%;
 }
@@ -942,13 +952,13 @@ body {
 }
 
 .quiz__title--special1 {
-  background-image: url("./../public/assets/img/quizbg1.svg");
+  background-image: url("./../assets/img/quizbg1.svg");
   background-repeat: no-repeat;
   background-position: 0% 100%;
 }
 
 .quiz__title--special2 {
-  background-image: url("./../public/assets/img/quizbg2.svg");
+  background-image: url("./../assets/img/quizbg2.svg");
   background-repeat: no-repeat;
   background-position: 0% 100%;
 }
@@ -1040,13 +1050,13 @@ body {
 }
 
 .speed__wrapper--endgoodbg {
-  background-image: url("./../public/assets/img/quizendgoodbg.svg");
+  background-image: url("./../assets/img/quizendgoodbg.svg");
   background-repeat: no-repeat;
   background-position: 100% 0%;
 }
 
 .speed__wrapper--endbadbg {
-  background-image: url("./../public/assets/img/quizendbadbg.svg");
+  background-image: url("./../assets/img/quizendbadbg.svg");
   background-repeat: no-repeat;
   background-position: 200% 3%;
 }
@@ -1087,7 +1097,7 @@ body {
   letter-spacing: 0.175rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
-  background-image: url("./../public/assets/img/ch1p9bg.svg");
+  background-image: url("./../assets/img/ch1p9bg.svg");
   background-repeat: no-repeat;
   background-position: 0% 100%;
   padding-bottom: 1rem;
@@ -1160,7 +1170,7 @@ body {
   font-weight: 600;
   line-height: normal;
   padding-top: 8rem;
-  background-image: url("./../public/assets/img/ch2bg.svg");
+  background-image: url("./../assets/img/ch2bg.svg");
   background-repeat: no-repeat;
   background-position: 100% 40%;
   padding-right: 2rem;
@@ -1168,7 +1178,7 @@ body {
 
 .ch2__title--underline {
   padding-bottom: 0.5rem;
-  background-image: url("./../public/assets/img/ch2bg2.svg");
+  background-image: url("./../assets/img/ch2bg2.svg");
   background-repeat: no-repeat;
   background-position: 0% 100%;
 }
@@ -1190,7 +1200,7 @@ body {
   line-height: normal;
   padding: 4rem 1rem;
   padding-top: 8rem;
-  background-image: url("./../public/assets/img/ch2p1bg.svg");
+  background-image: url("./../assets/img/ch2p1bg.svg");
   background-repeat: no-repeat;
   /* background-position: ; */
   border: solid var(--bordersize) var(--bordercolor);
@@ -1259,7 +1269,7 @@ body {
 }
 .ch2__p2{
   width: 100vw;
-  background-image: url("./../public/assets/img/ch2p2bg.svg");
+  background-image: url("./../assets/img/ch2p2bg.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
 }
@@ -1329,7 +1339,7 @@ body {
     line-height: 132%;
     letter-spacing: 0.025rem;
     padding-bottom: .5rem;
-    background-image: url("./../public/assets/img/railgametitlebg.svg");
+    background-image: url("./../assets/img/railgametitlebg.svg");
     background-repeat: no-repeat;
     background-position: 50% 100%;
     margin-bottom: 1.5rem;
@@ -1387,7 +1397,7 @@ body {
   grid-column: 1 / 3;
   grid-row: 1;
   border: solid var(--bordersize) var(--bordercolor);
-  background-image: url("./../public/assets/img/ch3bg.svg");
+  background-image: url("./../assets/img/ch3bg.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
   padding-top: 6rem;
@@ -1402,7 +1412,7 @@ body {
     font-weight: 600;
     line-height: normal;
     padding-bottom: .5rem;
-    background-image: url("./../public/assets/img/ch3underline.svg");
+    background-image: url("./../assets/img/ch3underline.svg");
     background-repeat: no-repeat;
     background-position: 50% 100%;
     background-size: 12rem auto;
@@ -1479,13 +1489,13 @@ color: var(--seccolorblue);
 }
 .ch3__p1--textunderline1{
   padding-bottom: 0.3rem;
-  background-image: url("./../public/assets/img/ch3p1bg1.svg");
+  background-image: url("./../assets/img/ch3p1bg1.svg");
   background-repeat: no-repeat;
   background-position: 50% 100%;
 }
 .ch3__p1--textunderline2{
   padding-bottom: 0.3rem;
-  background-image: url("./../public/assets/img/ch3p1bg3.svg");
+  background-image: url("./../assets/img/ch3p1bg3.svg");
   background-repeat: no-repeat;
   background-position: 50% 100%;
 }
@@ -1518,7 +1528,7 @@ color: var(--seccolorblue);
   border-top: none;
   border-bottom: none;
   width: 100vw;
-  background-image: url("./../public/assets/img/lighttrainbg.svg");
+  background-image: url("./../assets/img/lighttrainbg.svg");
   background-repeat: no-repeat;
   background-position: 0% 40%;
 }
@@ -1586,7 +1596,7 @@ color: var(--seccolorblue);
   justify-content: center;
   align-items: center;
   margin-bottom: 2.5rem;
-  background-image: url("./../public/assets/img/ch3p6bg.svg");
+  background-image: url("./../assets/img/ch3p6bg.svg");
   background-repeat: no-repeat;
   background-position: 95% 50%;
   padding: 2rem 00rem;
@@ -1598,7 +1608,6 @@ color: var(--seccolorblue);
   color: transparent;
 -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--seccolorblue);
-  font-family: "Articulat CF";
   font-size: var(--s3);
   font-style: normal;
   font-weight: 800;
@@ -1608,7 +1617,6 @@ color: var(--seccolorblue);
 }
 .ch3__p6--title2{
   color: var(--seccolorblue);
-  font-family: "Articulat CF";
   font-size: var(--s5);
   font-style: normal;
   font-weight: 600;
@@ -1652,6 +1660,40 @@ color: var(--seccolorblue);
     font-weight: 400;
     line-height: normal;
 }
+footer {
+  background: var(--seccolorblue);
+  padding: 3rem 1rem;
+}
+.footer__logo--wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.footer__logo{
+  width: 4rem;
+}
+.footer__name{
+color: var(--mainbgcolor);
+  text-align: center;
+  font-size: var(--s2);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.15625rem;
+  padding-bottom: .5rem;
+  background-image: url("./../assets/img/footerunderline.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+}
+.footer__socialmedia--wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
 
 @media screen and (min-width: 920px) {
 

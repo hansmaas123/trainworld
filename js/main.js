@@ -282,13 +282,13 @@ const answerRightFour = () => {
 const quizEnd = () => {
     button1.removeEventListener("click", answerRightFour);
     button2.removeEventListener("click", quizEnd);
-    
+
     button1.style.opacity = 0;
     button2.style.opacity = 0;
     speed.classList.add("speed__style--end");
     speedWrapper.classList.add("speed__wrapper--end");
     changeGridQuiz.classList.add(("change__grid"));
-    
+
     if (speedCount > 200) {
         quizText.innerHTML = "Congrats! You drove fast enough and passed the barrier in time!"
         speedWrapperWrapper.classList.add("speed__wrapper--endgoodbg");
@@ -367,6 +367,7 @@ const trackRepairHandler = () => {
 }
 
 const trackRepair1 = () => {
+    rail1.style.animation = "none";
     rail1.removeEventListener("click", trackRepair1);
     rail2.removeEventListener("click", trackRepair2);
     rail3.removeEventListener("click", trackRepair3);
@@ -374,6 +375,8 @@ const trackRepair1 = () => {
     track.addEventListener("click", trackProgress1);
 }
 const trackRepair2 = () => {
+    rail2.style.animation = "none";
+    track.style.animation = "clickable 1s ease-in-out infinite";
     rail1.removeEventListener("click", trackRepair1);
     rail2.removeEventListener("click", trackRepair2);
     rail3.removeEventListener("click", trackRepair3);
@@ -381,6 +384,7 @@ const trackRepair2 = () => {
     track.addEventListener("click", trackProgress2);
 }
 const trackRepair3 = () => {
+    rail3.style.animation = "none";
     rail1.removeEventListener("click", trackRepair1);
     rail2.removeEventListener("click", trackRepair2);
     rail3.removeEventListener("click", trackRepair3);
@@ -388,6 +392,7 @@ const trackRepair3 = () => {
     track.addEventListener("click", trackProgress3);
 }
 const trackRepair4 = () => {
+    rail4.style.animation = "none";
     rail1.removeEventListener("click", trackRepair1);
     rail2.removeEventListener("click", trackRepair2);
     rail3.removeEventListener("click", trackRepair3);
@@ -396,8 +401,8 @@ const trackRepair4 = () => {
 }
 const trackProgress1 = () => {
     version++;
-    track.src = "./public/assets/img/railgamev" + version + ".png",
-    rail1.style.opacity = "0";
+    track.src = "int3/railgamev" + version + ".png",
+        rail1.style.opacity = "0";
     if (version < 4) {
         track.removeEventListener("click", trackProgress1);
         rail2.addEventListener("click", trackRepair2);
@@ -409,14 +414,14 @@ const trackProgress1 = () => {
         railEndTitle.innerHTML = "OH YES"
         railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!"
         railEndText.style.fontFamily = "var(--bodyfont)"
-         railEndButton.style.opacity = "100%";
+        railEndButton.style.opacity = "100%";
         railEndButton.style.zIndex = 1;
 
     }
 }
 const trackProgress2 = () => {
     version++;
-    track.src = "./public/assets/img/railgamev" + version + ".png"
+    track.src = "int3/railgamev" + version + ".png"
     rail2.style.opacity = "0"
     if (version < 4) {
         track.removeEventListener("click", trackProgress2);
@@ -429,32 +434,34 @@ const trackProgress2 = () => {
         railEndTitle.innerHTML = "OH YES"
         railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for your next visit to our musuem with a <span class='bold'>10% discount</span>!"
         railEndText.style.fontFamily = "var(--bodyfont)"
-         railEndButton.style.opacity = "100%";
+        railEndButton.style.opacity = "100%";
         railEndButton.style.zIndex = 1;
     }
 }
 const trackProgress3 = () => {
     version++;
-    track.src = "./public/assets/img/railgamev" + version + ".png"
+    track.src = "int3/railgamev" + version + ".png"
     rail3.style.opacity = "0"
     if (version < 4) {
         track.removeEventListener("click", trackProgress3);
         rail1.addEventListener("click", trackRepair1);
         rail2.addEventListener("click", trackRepair2);
         rail4.addEventListener("click", trackRepair4);
+        // rail4.addEventListener("click", () => trackRepair4());
+
     } else {
         track.removeEventListener("click", trackProgress3);
         railEndHide.style.opacity = "0";
         railEndTitle.innerHTML = "OH YES"
         railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!"
         railEndText.style.fontFamily = "var(--bodyfont)"
-         railEndButton.style.opacity = "100%";
+        railEndButton.style.opacity = "100%";
         railEndButton.style.zIndex = 1;
     }
 }
 const trackProgress4 = () => {
     version++;
-    track.src = "./public/assets/img/railgamev" + version + ".png"
+    track.src = "int3/railgamev" + version + ".png"
     rail4.style.opacity = "0"
     if (version < 4) {
         track.removeEventListener("click", trackProgress4);
@@ -480,7 +487,7 @@ const seatsMove = () => {
             start: "bottom bottom",
             end: "top 0%",
             pin: true,
-            // scrub: true
+            scrub: true
         }
     })
 }
