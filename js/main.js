@@ -3,11 +3,22 @@ import "/css/style.css";
 let scroll = true;
 let stop = false;
 let speedCount = 0;
+let version = 0;
 
 const quizText = document.querySelector(".quiz__text");
 const speedWrapper = document.querySelector(".speed__wrapper");
 const speedWrapperWrapper = document.querySelector(".speed__wrapper--wrapper");
 const changeGridQuiz = document.querySelector(".ch1__p8");
+
+const rail1 = document.querySelector(".railgame__rail1");
+const rail2 = document.querySelector(".railgame__rail2");
+const rail3 = document.querySelector(".railgame__rail3");
+const rail4 = document.querySelector(".railgame__rail4");
+const track = document.querySelector(".railgame__track");
+const railEndHide = document.querySelector(".railgame__text");
+const railEndText = document.querySelector(".railgame__subtext");
+const railEndTitle = document.querySelector(".railgame__title");
+const railEndButton = document.querySelector(".railgame__end--wrapper");
 
 const button1 = document.createElement(`button`);
 const button2 = document.createElement(`button`);
@@ -164,7 +175,7 @@ const tunnelIllusion = () => {
     //         }
     //     })
     // } 
-    
+
 }
 
 const railwayLineHorizontalMove = () => {
@@ -185,9 +196,9 @@ const quizButtonHandler = () => {
     quizButton.addEventListener("click", playQuiz);
 }
 const playQuiz = () => {
-    gsap.to(".quiz__title", {marginTop: 0})
-    gsap.to(".quiz__text", {opacity: 0})
-    gsap.to(".quiz__button", {opacity: 0})
+    gsap.to(".quiz__title", { marginTop: 0 })
+    gsap.to(".quiz__text", { opacity: 0 })
+    gsap.to(".quiz__button", { opacity: 0 })
     const quizAnimation = document.querySelector(".quiz__animation");
     quizAnimation.play();
     quizAnimation.addEventListener("complete", quizQuestionOne);
@@ -199,11 +210,11 @@ const quizQuestionOne = () => {
     quizText.style.fontWeight = "600";
     quizText.style.textTransform = "uppercase";
 
-    
+
 
     button1.innerHTML = "Controversial"
     button2.innerHTML = "Practical"
-    speed.innerHTML = speedCount+ " KM/H";
+    speed.innerHTML = speedCount + " KM/H";
 
     const quizButtonWrapper = document.querySelector(".quiz__button--wrapper");
     quizButtonWrapper.appendChild(button1);
@@ -214,28 +225,28 @@ const quizQuestionOne = () => {
     button1.addEventListener("click", answerRightOne);
     button2.addEventListener("click", quizQuestionTwo);
 }
-    const answerRightOne = () => {
-        speedCount += 100;
-        quizQuestionTwo();
-    }
-    
-    
-    const quizQuestionTwo = () => {
-        quizText.innerHTML = "How much did the first full 300 km/h high-speed line network in Europe cost?"
-        button1.innerHTML = "4 Billion Euro"
-        button2.innerHTML = "5 Billion Euro"
-        speed.innerHTML = speedCount + " KM/H";
-        
-        button1.removeEventListener("click", answerRightOne);
-        button2.removeEventListener("click", quizQuestionTwo);
-        
-        button1.addEventListener("click", quizQuestionThree);
-        button2.addEventListener("click", answerRightTwo);
-    }
-    const answerRightTwo = () => {
-        speedCount += 100;
-        quizQuestionThree();
-    }
+const answerRightOne = () => {
+    speedCount += 100;
+    quizQuestionTwo();
+}
+
+
+const quizQuestionTwo = () => {
+    quizText.innerHTML = "How much did the first full 300 km/h high-speed line network in Europe cost?"
+    button1.innerHTML = "4 Billion Euro"
+    button2.innerHTML = "5 Billion Euro"
+    speed.innerHTML = speedCount + " KM/H";
+
+    button1.removeEventListener("click", answerRightOne);
+    button2.removeEventListener("click", quizQuestionTwo);
+
+    button1.addEventListener("click", quizQuestionThree);
+    button2.addEventListener("click", answerRightTwo);
+}
+const answerRightTwo = () => {
+    speedCount += 100;
+    quizQuestionThree();
+}
 const quizQuestionThree = () => {
     quizText.innerHTML = "How long is the Channel Tunnel?"
     button1.innerHTML = "50 KM"
@@ -258,26 +269,29 @@ const quizQuestionFour = () => {
     button1.innerHTML = "Walhorn"
     button2.innerHTML = "Liège"
     speed.innerHTML = speedCount + " KM/H";
-    
-    button1.removeEventListener("click", quizQuestionThree);
-    button2.removeEventListener("click", answerRightTwo);
-    
+
+    button1.removeEventListener("click", quizQuestionFour);
+    button2.removeEventListener("click", answerRightThree);
+
     button1.addEventListener("click", answerRightFour);
     button2.addEventListener("click", quizEnd);
-    
+
 }
 const answerRightFour = () => {
     speedCount += 100;
     quizEnd();
 }
 const quizEnd = () => {
+    button1.removeEventListener("click", answerRightFour);
+    button2.removeEventListener("click", quizEnd);
+    
     button1.style.opacity = 0;
     button2.style.opacity = 0;
     speed.classList.add("speed__style--end");
-    
     speedWrapper.classList.add("speed__wrapper--end");
     changeGridQuiz.classList.add(("change__grid"));
-    if(speedCount > 200){
+    
+    if (speedCount > 200) {
         quizText.innerHTML = "Congrats! You drove fast enough and passed the barrier in time!"
         speedWrapperWrapper.classList.add("speed__wrapper--endgoodbg");
     } else {
@@ -347,6 +361,118 @@ const chapterTwoAnimation = () => {
 //         enableScroll()
 //     }
 // }
+const trackRepairHandler = () => {
+    rail1.addEventListener("click", trackRepair1);
+    rail2.addEventListener("click", trackRepair2);
+    rail3.addEventListener("click", trackRepair3);
+    rail4.addEventListener("click", trackRepair4);
+}
+
+const trackRepair1 = () => {
+    rail1.removeEventListener("click", trackRepair1);
+    rail2.removeEventListener("click", trackRepair2);
+    rail3.removeEventListener("click", trackRepair3);
+    rail4.removeEventListener("click", trackRepair4);
+    track.addEventListener("click", trackProgress1);
+}
+const trackRepair2 = () => {
+    rail1.removeEventListener("click", trackRepair1);
+    rail2.removeEventListener("click", trackRepair2);
+    rail3.removeEventListener("click", trackRepair3);
+    rail4.removeEventListener("click", trackRepair4);
+    track.addEventListener("click", trackProgress2);
+}
+const trackRepair3 = () => {
+    rail1.removeEventListener("click", trackRepair1);
+    rail2.removeEventListener("click", trackRepair2);
+    rail3.removeEventListener("click", trackRepair3);
+    rail4.removeEventListener("click", trackRepair4);
+    track.addEventListener("click", trackProgress3);
+}
+const trackRepair4 = () => {
+    rail1.removeEventListener("click", trackRepair1);
+    rail2.removeEventListener("click", trackRepair2);
+    rail3.removeEventListener("click", trackRepair3);
+    rail4.removeEventListener("click", trackRepair4);
+    track.addEventListener("click", trackProgress4);
+}
+const trackProgress1 = () => {
+    version++;
+    track.src = "./public/assets/img/railgamev" + version + ".png",
+    rail1.style.opacity = "0";
+    if (version < 4) {
+        track.removeEventListener("click", trackProgress1);
+        rail2.addEventListener("click", trackRepair2);
+        rail3.addEventListener("click", trackRepair3);
+        rail4.addEventListener("click", trackRepair4);
+    } else {
+        track.removeEventListener("click", trackProgress1);
+        railEndHide.style.opacity = "0";
+        railEndTitle.innerHTML = "OH YES"
+        railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!"
+        railEndText.style.fontFamily = "var(--bodyfont)"
+         railEndButton.style.opacity = "100%";
+        railEndButton.style.zIndex = 1;
+
+    }
+}
+const trackProgress2 = () => {
+    version++;
+    track.src = "./public/assets/img/railgamev" + version + ".png"
+    rail2.style.opacity = "0"
+    if (version < 4) {
+        track.removeEventListener("click", trackProgress2);
+        rail1.addEventListener("click", trackRepair1);
+        rail3.addEventListener("click", trackRepair3);
+        rail4.addEventListener("click", trackRepair4);
+    } else {
+        track.removeEventListener("click", trackProgress2);
+        railEndHide.style.opacity = "0";
+        railEndTitle.innerHTML = "OH YES"
+        railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for your next visit to our musuem with a <span class='bold'>10% discount</span>!"
+        railEndText.style.fontFamily = "var(--bodyfont)"
+         railEndButton.style.opacity = "100%";
+        railEndButton.style.zIndex = 1;
+    }
+}
+const trackProgress3 = () => {
+    version++;
+    track.src = "./public/assets/img/railgamev" + version + ".png"
+    rail3.style.opacity = "0"
+    if (version < 4) {
+        track.removeEventListener("click", trackProgress3);
+        rail1.addEventListener("click", trackRepair1);
+        rail2.addEventListener("click", trackRepair2);
+        rail4.addEventListener("click", trackRepair4);
+    } else {
+        track.removeEventListener("click", trackProgress3);
+        railEndHide.style.opacity = "0";
+        railEndTitle.innerHTML = "OH YES"
+        railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!"
+        railEndText.style.fontFamily = "var(--bodyfont)"
+         railEndButton.style.opacity = "100%";
+        railEndButton.style.zIndex = 1;
+    }
+}
+const trackProgress4 = () => {
+    version++;
+    track.src = "./public/assets/img/railgamev" + version + ".png"
+    rail4.style.opacity = "0"
+    if (version < 4) {
+        track.removeEventListener("click", trackProgress4);
+        rail1.addEventListener("click", trackRepair1);
+        rail2.addEventListener("click", trackRepair2);
+        rail3.addEventListener("click", trackRepair3);
+    } else {
+        track.removeEventListener("click", trackProgress4);
+        railEndHide.style.opacity = "0";
+        railEndTitle.innerHTML = "OH YES"
+        railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!";
+        railEndText.style.fontFamily = "var(--bodyfont)";
+        railEndButton.style.opacity = "100%";
+        railEndButton.style.zIndex = 1;
+    }
+}
 
 const init = () => {
     gsap.registerPlugin(ScrollTrigger);
@@ -355,16 +481,14 @@ const init = () => {
     textAnimator();
     tunnelIllusion();
     // setInterval(intervalFunction, 100)
-    window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-    }
+    // window.onbeforeunload = function () {
+    //     window.scrollTo(0, 0);
+    // }
     tunnelSwitchHandler();
     railwayLineHorizontalMove();
     quizButtonHandler();
     chapterTwoAnimation();
+    trackRepairHandler();
 }
 
 init();
-
-
-//command z till here
