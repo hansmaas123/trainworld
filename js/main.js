@@ -268,8 +268,8 @@ const quizQuestionFour = () => {
     button2.innerHTML = "Liège"
     speed.innerHTML = speedCount + " KM/H";
 
-    button1.removeEventListener("click", quizQuestionFour);
-    button2.removeEventListener("click", answerRightThree);
+    button1.removeEventListener("click", answerRightThree);
+    button2.removeEventListener("click", quizQuestionFour);
 
     button1.addEventListener("click", answerRightFour);
     button2.addEventListener("click", quizEnd);
@@ -368,6 +368,7 @@ const trackRepairHandler = () => {
 
 const trackRepair1 = () => {
     rail1.style.animation = "none";
+    track.style.animation = "clickable 1s ease-in-out infinite";
     rail1.removeEventListener("click", trackRepair1);
     rail2.removeEventListener("click", trackRepair2);
     rail3.removeEventListener("click", trackRepair3);
@@ -385,6 +386,7 @@ const trackRepair2 = () => {
 }
 const trackRepair3 = () => {
     rail3.style.animation = "none";
+    track.style.animation = "clickable 1s ease-in-out infinite";
     rail1.removeEventListener("click", trackRepair1);
     rail2.removeEventListener("click", trackRepair2);
     rail3.removeEventListener("click", trackRepair3);
@@ -393,6 +395,7 @@ const trackRepair3 = () => {
 }
 const trackRepair4 = () => {
     rail4.style.animation = "none";
+    track.style.animation = "clickable 1s ease-in-out infinite";
     rail1.removeEventListener("click", trackRepair1);
     rail2.removeEventListener("click", trackRepair2);
     rail3.removeEventListener("click", trackRepair3);
@@ -496,7 +499,7 @@ const init = () => {
     gsap.registerPlugin(ScrollTrigger);
     hamburgerMenu();
     chapterOneAnimation();
-    textAnimator();
+    // textAnimator();
     tunnelIllusion();
     // setInterval(intervalFunction, 100)
     // window.onbeforeunload = function () {
