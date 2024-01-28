@@ -4,6 +4,7 @@ let scroll = true;
 let stop = false;
 let speedCount = 0;
 let version = 0;
+let railArray = [];
 
 const quizText = document.querySelector(".quiz__text");
 const speedWrapper = document.querySelector(".speed__wrapper");
@@ -32,28 +33,14 @@ const hamburgerMenu = () => {
     document.querySelector('.hamburger').addEventListener('click', () => {
         document.querySelector('.nav__wrapper').classList.toggle('expanded');
     });
+    document.querySelector('.nav__link').addEventListener('click', () => {
+        document.querySelector('.nav__wrapper').classList.toggle('expanded');
+    });
 }
 const tunnelSwitchHandler = () => {
     const tunnelSwitch = document.querySelector(".tunnel__button");
     tunnelSwitch.addEventListener(`click`, lightsOn);
 }
-// const disableScroll = () => {
-//     gsap.to(".body", {
-//         scrollTrigger: {
-//             trigger: ".tunnel__dark--wrapper",
-//             start: "bottom 120%",
-//             end: "bottom 115%",
-//             onLeave: function () {
-//                 document.body.classList.add("disable-scrolling");
-//             }
-//         }
-//     })
-// }
-// const enableScroll = () => {
-//     document.body.classList.remove("disable-scrolling");
-//     console.log("init werkt")
-
-// }
 
 const lightsOn = () => {
     scroll = false;
@@ -157,23 +144,6 @@ const tunnelIllusion = () => {
             onEnterBack: self => self.disable()
         }
     })
-    // if (scroll === true){
-
-    //     gsap.to(".tunnel__dark--wrapper", {
-    //         opacity: "100%",
-    //         scrollTrigger: {
-    //             trigger: ".tunnel__dark--text",
-    //             start: "top 40%",
-    //             end:"top 39%",
-    //             pin: ".tunnel__dark--wrapper",
-    //             onLeave: function () {
-    //                 document.body.classList.add("disable-scrolling");
-    //             },
-    //             onLeaveBack: self => self.disable()
-    //         }
-    //     })
-    // } 
-
 }
 
 const railwayLineHorizontalMove = () => {
@@ -352,131 +322,49 @@ const chapterTwoAnimation = () => {
 }
 
 
-// const intervalFunction = () => {
-//     if (scroll === true) {
-//         disableScroll();
-//     } else if (scroll === false) {
-//         enableScroll()
-//     }
-// }
+
+
 const trackRepairHandler = () => {
-    rail1.addEventListener("click", trackRepair1);
-    rail2.addEventListener("click", trackRepair2);
-    rail3.addEventListener("click", trackRepair3);
-    rail4.addEventListener("click", trackRepair4);
+    document.querySelector(".railgame__rail1").addEventListener("click", () => trackRepair(1));
+    document.querySelector(".railgame__rail2").addEventListener("click", () => trackRepair(2));
+    document.querySelector(".railgame__rail3").addEventListener("click", () => trackRepair(3));
+    document.querySelector(".railgame__rail4").addEventListener("click", () => trackRepair(4));
 }
 
-const trackRepair1 = () => {
-    rail1.style.animation = "none";
+const trackRepair = (railNumber) => {
+    const rail = document.querySelector(".railgame__rail" + railNumber);
+    rail.style.animation = "none";
     track.style.animation = "clickable 1s ease-in-out infinite";
-    rail1.removeEventListener("click", trackRepair1);
-    rail2.removeEventListener("click", trackRepair2);
-    rail3.removeEventListener("click", trackRepair3);
-    rail4.removeEventListener("click", trackRepair4);
-    track.addEventListener("click", trackProgress1);
+    for (let i = 1; i < 5; i++){
+            document.querySelector(".railgame__rail"+i).removeEventListener("click", () => trackRepair(railNumber));
+
+     }
+    track.addEventListener("click", () => trackProgress(railNumber));
 }
-const trackRepair2 = () => {
-    rail2.style.animation = "none";
-    track.style.animation = "clickable 1s ease-in-out infinite";
-    rail1.removeEventListener("click", trackRepair1);
-    rail2.removeEventListener("click", trackRepair2);
-    rail3.removeEventListener("click", trackRepair3);
-    rail4.removeEventListener("click", trackRepair4);
-    track.addEventListener("click", trackProgress2);
-}
-const trackRepair3 = () => {
-    rail3.style.animation = "none";
-    track.style.animation = "clickable 1s ease-in-out infinite";
-    rail1.removeEventListener("click", trackRepair1);
-    rail2.removeEventListener("click", trackRepair2);
-    rail3.removeEventListener("click", trackRepair3);
-    rail4.removeEventListener("click", trackRepair4);
-    track.addEventListener("click", trackProgress3);
-}
-const trackRepair4 = () => {
-    rail4.style.animation = "none";
-    track.style.animation = "clickable 1s ease-in-out infinite";
-    rail1.removeEventListener("click", trackRepair1);
-    rail2.removeEventListener("click", trackRepair2);
-    rail3.removeEventListener("click", trackRepair3);
-    rail4.removeEventListener("click", trackRepair4);
-    track.addEventListener("click", trackProgress4);
-}
-const trackProgress1 = () => {
+
+
+const trackProgress = (railNumber) => {
     version++;
-    track.src = "int3/railgamev" + version + ".png",
-        rail1.style.opacity = "0";
-    if (version < 4) {
-        track.removeEventListener("click", trackProgress1);
-        rail2.addEventListener("click", trackRepair2);
-        rail3.addEventListener("click", trackRepair3);
-        rail4.addEventListener("click", trackRepair4);
+    railArray.push(railNumber);
+    console.log(railArray)
+    track.src = "int3/railgamev" + version + ".png";
+    document.querySelector(".railgame__rail"+railNumber).style.opacity = "0";
+    if (version < 7) {
+        track.removeEventListener("click", trackProgress);
+        for(let i = 1; i < 5; i++){
+            if(railArray[i] === i){
+                 console.log("w"+ railArray.includes(i));
+                document.querySelector(".railgame__rail"+i).addEventListener("click", () => trackRepair(i));
+             }
+            }
     } else {
-        track.removeEventListener("click", trackProgress1);
+        track.removeEventListener("click", trackProgress);
         railEndHide.style.opacity = "0";
         railEndTitle.innerHTML = "OH YES"
         railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!"
+        track.style.visibility = "hidden";
+        document.querySelector(".track__animation").classList.add("animation__visible");
         railEndText.style.fontFamily = "var(--bodyfont)"
-        railEndButton.style.opacity = "100%";
-        railEndButton.style.zIndex = 1;
-
-    }
-}
-const trackProgress2 = () => {
-    version++;
-    track.src = "int3/railgamev" + version + ".png"
-    rail2.style.opacity = "0"
-    if (version < 4) {
-        track.removeEventListener("click", trackProgress2);
-        rail1.addEventListener("click", trackRepair1);
-        rail3.addEventListener("click", trackRepair3);
-        rail4.addEventListener("click", trackRepair4);
-    } else {
-        track.removeEventListener("click", trackProgress2);
-        railEndHide.style.opacity = "0";
-        railEndTitle.innerHTML = "OH YES"
-        railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for your next visit to our musuem with a <span class='bold'>10% discount</span>!"
-        railEndText.style.fontFamily = "var(--bodyfont)"
-        railEndButton.style.opacity = "100%";
-        railEndButton.style.zIndex = 1;
-    }
-}
-const trackProgress3 = () => {
-    version++;
-    track.src = "int3/railgamev" + version + ".png"
-    rail3.style.opacity = "0"
-    if (version < 4) {
-        track.removeEventListener("click", trackProgress3);
-        rail1.addEventListener("click", trackRepair1);
-        rail2.addEventListener("click", trackRepair2);
-        rail4.addEventListener("click", trackRepair4);
-        // rail4.addEventListener("click", () => trackRepair4());
-
-    } else {
-        track.removeEventListener("click", trackProgress3);
-        railEndHide.style.opacity = "0";
-        railEndTitle.innerHTML = "OH YES"
-        railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!"
-        railEndText.style.fontFamily = "var(--bodyfont)"
-        railEndButton.style.opacity = "100%";
-        railEndButton.style.zIndex = 1;
-    }
-}
-const trackProgress4 = () => {
-    version++;
-    track.src = "int3/railgamev" + version + ".png"
-    rail4.style.opacity = "0"
-    if (version < 4) {
-        track.removeEventListener("click", trackProgress4);
-        rail1.addEventListener("click", trackRepair1);
-        rail2.addEventListener("click", trackRepair2);
-        rail3.addEventListener("click", trackRepair3);
-    } else {
-        track.removeEventListener("click", trackProgress4);
-        railEndHide.style.opacity = "0";
-        railEndTitle.innerHTML = "OH YES"
-        railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!";
-        railEndText.style.fontFamily = "var(--bodyfont)";
         railEndButton.style.opacity = "100%";
         railEndButton.style.zIndex = 1;
     }
@@ -501,7 +389,6 @@ const init = () => {
     chapterOneAnimation();
     // textAnimator();
     tunnelIllusion();
-    // setInterval(intervalFunction, 100)
     // window.onbeforeunload = function () {
     //     window.scrollTo(0, 0);
     // }
