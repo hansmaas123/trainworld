@@ -167,9 +167,13 @@ const playQuiz = () => {
     gsap.to(".quiz__title", { marginTop: 0 })
     gsap.to(".quiz__text", { opacity: 0 })
     gsap.to(".quiz__button", { opacity: 0 })
-    const quizAnimation = document.querySelector(".quiz__animation");
-    quizAnimation.play();
-    quizAnimation.addEventListener("complete", quizQuestionOne);
+    const quizAnimation1 = document.querySelector(".quiz__animation1");
+    const quizAnimation2 = document.querySelector(".quiz__animation2");
+    const quizAnimation3 = document.querySelector(".quiz__animation3");
+    quizAnimation1.play();
+    quizAnimation2.play();
+    quizAnimation3.play();
+    quizAnimation1.addEventListener("complete", quizQuestionOne);
 }
 const quizQuestionOne = () => {
     gsap.to(".quiz__text", { opacity: 1 })
@@ -360,7 +364,7 @@ const trackProgress = (railNumber) => {
     } else {
         track.removeEventListener("click", trackProgress);
         railEndHide.style.opacity = "0";
-        railEndTitle.innerHTML = "OH YES"
+        railEndTitle.innerHTML = "OH YES!"
         railEndText.innerHTML = "Congrats! you successfully repaired the track. As a reward, you can order your tickets for the next visit to our musuem with a <span class='bold'>10% discount</span>!"
         track.style.visibility = "hidden";
         document.querySelector(".track__animation").classList.add("animation__visible");
@@ -387,7 +391,7 @@ const init = () => {
     gsap.registerPlugin(ScrollTrigger);
     hamburgerMenu();
     chapterOneAnimation();
-    // textAnimator();
+    textAnimator();
     tunnelIllusion();
     // window.onbeforeunload = function () {
     //     window.scrollTo(0, 0);

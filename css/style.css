@@ -1030,16 +1030,51 @@ body {
 .quiz__animation--wrapper {
   grid-column: 1;
   grid-row: 1;
+  z-index: -1;
+  display: grid;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
-  display: flex;
-  align-items: flex-end;
+  grid-template-columns: 100vw;
+  grid-template-rows: 100vh;
+  place-items: center;
 }
 
-.quiz__animation {
-  width: 100%;
-  height: 100%;
+
+.quiz__animation3--wrapper{
+  width: 100vw;
+  height: 100vh;
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.quiz__animation2--wrapper{
+  width: 100vw;
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.quiz__animation1--wrapper{
+  width: 100vw;
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+.quiz__animation1{
+  width: 90vw;
+  
+}
+.quiz__animation2{
+  width: 90vw;  
+}
+
+.quiz__animation3{
+  height: 60vh;
+  margin-left: -50vw;
+
 }
 
 .speed__wrapper {
@@ -1743,6 +1778,17 @@ color: var(--mainbgcolor);
 
 
 @media screen and (min-width: 768px){
+  .quiz__animation1 {
+      width: 60vw;
+  
+    }
+  
+    .quiz__animation2 {
+      width: 60vw;
+    }
+  .quiz__animation3 {
+      height: 65vh;
+    }
   .header__wrapper {
       grid-template-columns: repeat(2, 50%);
       grid-template-rows: 20% 60% 20%;
@@ -2487,7 +2533,7 @@ display: flex;
   height: 100%;
   border-left: solid var(--bordersize) var(--bordercolor);
   border-right: solid var(--bordersize) var(--bordercolor);
-  padding:10rem 02em;
+  padding:10rem 2rem;
 }
 .ch1__p4--side{
   transform-origin: center;
@@ -2520,10 +2566,10 @@ display: flex;
 }
 
 
-
 }
 
 @media screen and (min-width: 1024px) {
+  
 
   .nav__wrapper {
     margin-left: 5em;
@@ -2671,13 +2717,37 @@ padding-left: 8rem;
 
 }
 @media screen and (min-width: 1220px) {
+
+.ch1__p1--year{
+  margin: 0;
+}
+.ch1__p1--text{
+  padding: 0;
+}
+.ch1__p2--contentwrapper{
+  padding-right: 0;
+  width: 32rem;
+}
+.ch1__p4--sidewrapper{
+  padding: 12rem 2rem;
+}
+
+.ch1__p5--text{
+  width: 30rem;
+}
+.ch1__p4--textmonster{
+  font-size: 35px;
+}
+
 .header__image{
   width: 600px;
 }
 .header__title{
   font-size: 140px;
 }
-
+.railgame__title {
+  background-size: 12rem auto;
+}
 .intro {
   padding: 0rem 17rem;
   font-size: 50px;
@@ -2729,9 +2799,7 @@ padding-left: 8rem;
 .railgame__subtext{
   font-size: 40px;
 }
-.railgame__text{
-  font-size: 23px;
-}
+
 
 .ch3__p1{
   margin-top: 15rem;
@@ -2759,6 +2827,22 @@ padding-left: 8rem;
 .section__wrapper{
   justify-content: space-around;
 }
+.ch1__p7--title1, .ch1__p7--text, .ch1__p9--text, .ch1__p1--text, .ch1__p2--text, .railgame__text, .ch1__p2--text, .ch1__p4--text, .ch1__p1--text, .ch1__p5--text, .ch2__p1--text, .ch2__p2--text, .ch2__p3--text, .ch3__p2--text, .ch3__p3--text, .ch3__p4--text, .ch3__p5--text, .ch3__p6--text {
+  font-size: 23px;
+}
+.ch1__p7--title2, .ch2__p7--title3{
+  font-size: 50px;
+}
+.ch3__p5{
+  padding: 4rem 0rem;
+}
+
+.ch2__p3--img1, .ch2__p3--img3{
+  margin-bottom: -5rem;
+}
+
+
+
 
 
 
@@ -2782,5 +2866,7 @@ padding-left: 8rem;
 .nav__link{
   font-size: 20px;
 }
-
+.mobile__hidden2{
+  font-size: 45px;
+}
 }
