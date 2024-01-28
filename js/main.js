@@ -522,7 +522,7 @@ const trackClickHandler = () => {
 
 const trackProgress = (railNumber) => {
     version++;
-    track.src = "int3/railgamev" + version + ".png";
+    track.src = "railgamev" + version + ".png";
     document.querySelector(".railgame__rail"+railNumber).style.opacity = "0";
     if (version < 4) {
         track.removeEventListener("click", trackClickHandler);
