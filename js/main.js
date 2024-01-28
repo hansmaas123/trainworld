@@ -5,6 +5,7 @@ let stop = false;
 let speedCount = 0;
 let version = 0;
 let railArray = [];
+let railNumberActive;
 
 const quizText = document.querySelector(".quiz__text");
 const speedWrapper = document.querySelector(".speed__wrapper");
@@ -52,7 +53,7 @@ const lightsOn = () => {
 }
 const chapterOneAnimation = () => {
     gsap.from(".chapterone__image", {
-        x: 400,
+        xPercent: 300,
         scrollTrigger: {
             trigger: ".chapterone__wrapper",
             start: "top 20%",
@@ -62,7 +63,16 @@ const chapterOneAnimation = () => {
         }
     })
     gsap.from(".chapterone__title", {
-        x: -400,
+        xPercent: -300,
+        scrollTrigger: {
+            trigger: ".chapterone__wrapper",
+            start: "top 20%",
+            end: "bottom 0%",
+            scrub: 1
+        }
+    })
+    gsap.from(".mobile__hidden2", {
+        xPercent: -300,
         scrollTrigger: {
             trigger: ".chapterone__wrapper",
             start: "top 20%",
@@ -90,6 +100,16 @@ const chapterOneAnimation = () => {
             scrub: 1
         }
     })
+    gsap.to(".mobile__hidden2", {
+        y: -300,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".chapterone__wrapper",
+            start: "top 10%",
+            end: "bottom 10%",
+            scrub: 1
+        }
+    })
 }
 
 
@@ -104,16 +124,16 @@ const textAnimator = () => {
             scrub: 1
         }
     })
-    // gsap.from(".ch1__p2--contentwrapper", {
-    //     y: 100,
-    //     opacity: 0,
-    //     scrollTrigger: {
-    //         trigger: ".chapter1__part2--wrapper",
-    //         start: "top 80%",
-    //         end: "bottom 80%",
-    //         scrub: 1
-    //     }
-    // })
+    gsap.from(".ch1__p2--contentwrapper", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".chapter1__part2--wrapper",
+            start: "top 80%",
+            end: "bottom 80%",
+            scrub: 1
+        }
+    })
     // gsap.from(".ch1__p5", {
     //     y: 100,
     //     opacity: 0,
@@ -148,7 +168,7 @@ const tunnelIllusion = () => {
 
 const railwayLineHorizontalMove = () => {
     gsap.to(".railwayline__wrapper--all", {
-        x: "-330vw",
+        x: "-300vw",
         scrollTrigger: {
             trigger: ".railwayline__wrapper--all",
             start: "top 40%",
@@ -271,6 +291,95 @@ const quizEnd = () => {
         speedWrapperWrapper.classList.add("speed__wrapper--endbadbg");
     }
 }
+
+const ch1P4Animation = () => {
+    gsap.from(".ch1__p4--textwrapper", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch1__p4--textwrapper",
+            start:"top 90%",
+            end:"bottom 90%",
+            scrub: 1
+        }
+    })
+}
+
+const ch1P7Animation = () => {
+    gsap.from(".ch1__p7--wrapper", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch1__p7--wrapper",
+            start:"top 50%",
+            end:"bottom 50%",
+            scrub: 1
+        }
+    })
+    gsap.from(".ch1__p7--image", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch1__p7--image",
+            start:"top 50%",
+            end:"bottom 50%",
+            scrub: 1
+        }
+    })
+}
+const ch2P1Animation = () => {
+    gsap.from(".mobile__hidden8--inner", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".mobile__hidden8--inner",
+            start:"top 70%",
+            end:"bottom 70%",
+            scrub: 1
+        }
+    })
+}
+const ch2P2Animation = () => {
+    gsap.from(".mobile__hidden9", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".mobile__hidden9",
+            start:"top 70%",
+            end:"bottom 70%",
+            scrub: 1
+        }
+    })
+}
+const chapterThreeAnimation = () => {
+    gsap.from(".ch3__title", {
+        y: -200,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch3",
+            start: "top 10%",
+            end: "bottom 10%",
+            pin: true,
+            scrub: 1
+        }
+    })
+    gsap.from(".ch3__img", {
+        y: 200,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch3",
+            start: "top 10%",
+            end: "bottom 10%",
+            scrub: 1
+        }
+    })
+}
+
+
+
+
+
+
 const chapterTwoAnimation = () => {
     gsap.from(".ch2__img1", {
         opacity: 0,
@@ -294,7 +403,7 @@ const chapterTwoAnimation = () => {
         }
     })
     gsap.from(".ch2__title", {
-        x: 400,
+        xPercent: 300,
         scrollTrigger: {
             trigger: ".ch2__title--wrapper",
             start: "top 25%",
@@ -302,64 +411,133 @@ const chapterTwoAnimation = () => {
             scrub: 1
         }
     })
-
-    // gsap.to(".ch2__img1", {
-    //     x: 400,
-    //     opacity: 0,
-    //     scrollTrigger: {
-    //         trigger: ".ch2",
-    //         start: "top 15%",
-    //         end: "bottom 10%",
-    //         scrub: 1
-    //     }
-    // })
-    // gsap.to(".ch2__img2", {
-    //     x: -400,
-    //     opacity: 0,
-    //     scrollTrigger: {
-    //         trigger: ".ch2",
-    //         start: "top 15%",
-    //         end: "bottom 10%",
-    //         scrub: 1
-    //     }
-    // })
 }
-
+const ch2P3Animation = () => {
+    gsap.from(".ch2__p3--img1", {
+        x: -200,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch2__p3--wrapper1",
+            start: "top 70%",
+            end: "bottom 70%",
+            scrub: 1
+        }
+    })
+    gsap.from(".ch2__p3--text1", {
+        x: -100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch2__p3--wrapper1",
+            start: "top 70%",
+            end: "bottom 70%",
+            scrub: 1
+        }
+    })
+    gsap.from(".ch2__p3--img2", {
+        x: -200,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch2__p3--wrapper2",
+            start: "top 70%",
+            end: "bottom 70%",
+            scrub: 1
+        }
+    })
+    gsap.from(".ch2__p3--text2", {
+        x: -100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch2__p3--wrapper2",
+            start: "top 70%",
+            end: "bottom 70%",
+            scrub: 1
+        }
+    })
+    gsap.from(".ch2__p3--img3", {
+        x: -200,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch2__p3--wrapper3",
+            start: "top 70%",
+            end: "bottom 70%",
+            scrub: 1
+        }
+    })
+    gsap.from(".ch2__p3--text3", {
+        x: -100,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: ".ch2__p3--wrapper3",
+            start: "top 70%",
+            end: "bottom 70%",
+            scrub: 1
+        }
+    })
+    
+}
 
 
 
 const trackRepairHandler = () => {
-    document.querySelector(".railgame__rail1").addEventListener("click", () => trackRepair(1));
-    document.querySelector(".railgame__rail2").addEventListener("click", () => trackRepair(2));
-    document.querySelector(".railgame__rail3").addEventListener("click", () => trackRepair(3));
-    document.querySelector(".railgame__rail4").addEventListener("click", () => trackRepair(4));
+        rail1.addEventListener("click", railClickHandler1);
+        rail2.addEventListener("click", railClickHandler2);
+        rail3.addEventListener("click", railClickHandler3);
+        rail4.addEventListener("click", railClickHandler4);
 }
 
+const railClickHandler1 = () => {
+    trackRepair(1);
+};
+
+const railClickHandler2 = () => {
+    trackRepair(2);
+};
+
+const railClickHandler3 = () => {
+    trackRepair(3);
+};
+
+const railClickHandler4 = () => {
+    trackRepair(4);
+};
+
 const trackRepair = (railNumber) => {
+    railNumberActive = railNumber;
     const rail = document.querySelector(".railgame__rail" + railNumber);
     rail.style.animation = "none";
     track.style.animation = "clickable 1s ease-in-out infinite";
-    for (let i = 1; i < 5; i++){
-            document.querySelector(".railgame__rail"+i).removeEventListener("click", () => trackRepair(railNumber));
 
-     }
-    track.addEventListener("click", () => trackProgress(railNumber));
+    rail1.removeEventListener("click", railClickHandler1);
+    rail2.removeEventListener("click", railClickHandler2);
+    rail3.removeEventListener("click", railClickHandler3);
+    rail4.removeEventListener("click", railClickHandler4);
+
+    track.addEventListener("click", trackClickHandler);
 }
+const trackClickHandler = () => {
+    trackProgress(railNumberActive);
+}
+
 
 
 const trackProgress = (railNumber) => {
     version++;
-    railArray.push(railNumber);
-    console.log(railArray)
     track.src = "int3/railgamev" + version + ".png";
     document.querySelector(".railgame__rail"+railNumber).style.opacity = "0";
-    if (version < 7) {
-        track.removeEventListener("click", trackProgress);
-        for(let i = 1; i < 5; i++){
-            if(railArray[i] === i){
-                 console.log("w"+ railArray.includes(i));
-                document.querySelector(".railgame__rail"+i).addEventListener("click", () => trackRepair(i));
-             }
+    if (version < 4) {
+        track.removeEventListener("click", trackClickHandler);
+        railArray.push(railNumber);
+            if(railArray.includes(1) === false){
+                rail1.addEventListener("click", railClickHandler1);
+            }
+            if(railArray.includes(2) === false){
+                rail2.addEventListener("click", railClickHandler2);
+            }
+            if(railArray.includes(3) === false){
+                rail3.addEventListener("click", railClickHandler3);
+            }
+            if(railArray.includes(4) === false){
+                rail4.addEventListener("click", railClickHandler4);
             }
     } else {
         track.removeEventListener("click", trackProgress);
@@ -371,6 +549,7 @@ const trackProgress = (railNumber) => {
         railEndText.style.fontFamily = "var(--bodyfont)"
         railEndButton.style.opacity = "100%";
         railEndButton.style.zIndex = 1;
+        document.querySelector(".railway__end--button").classList.add("railway__end--button1")
     }
 }
 
@@ -379,13 +558,30 @@ const seatsMove = () => {
         scale: 8,
         scrollTrigger: {
             trigger: ".seats",
-            start: "bottom bottom",
-            end: "top 0%",
+            start: "bottom 100%",
+            end: "top -200%",
             pin: true,
             scrub: true
         }
     })
 }
+
+
+const trainLightAnimation = () => {
+    gsap.from(".ch3__p2--img", {
+        xPercent: -100,
+        scrollTrigger: {
+            trigger: ".ch3__p2--img",
+            start: "top 90%",
+            end: "bottom 90%",
+            scrub: true
+        }
+    })
+}
+
+
+
+
 
 const init = () => {
     gsap.registerPlugin(ScrollTrigger);
@@ -398,9 +594,16 @@ const init = () => {
     // }
     tunnelSwitchHandler();
     railwayLineHorizontalMove();
+    ch1P4Animation()
     quizButtonHandler();
     chapterTwoAnimation();
     trackRepairHandler();
+    ch1P7Animation()
+    ch2P2Animation()
+    ch2P1Animation()
+    chapterThreeAnimation();
+    ch2P3Animation();
+    trainLightAnimation();
     seatsMove();
 }
 

@@ -863,11 +863,12 @@ body {
 
 .line__wrapper {
   margin-bottom: 2rem;
+  width: 100vw;
 }
 
 .railwayline__wrapper--all {
   display: flex;
-  gap: 3rem;
+  gap: 3vw;
 }
 
 .ch1__p7 {
@@ -1497,7 +1498,7 @@ body {
   grid-column: 1 / 4;
   grid-row: 2;
   width: 100vw;
-  border: solid var(--bordersize) var(--bordercolor);
+  border-bottom: solid var(--bordersize) var(--bordercolor);
 }
 .ch3__p1--titlewrapper{
   width: 18rem;
@@ -1640,7 +1641,7 @@ color: var(--seccolorblue);
 .seats{
   width: 100vw;
   overflow: hidden;
-  transform-origin: 50% 30%;
+  /* transform-origin: 50% 30%; */
 }
 .seats__wrapper{
   width: 100vw;
@@ -2215,7 +2216,7 @@ margin-top: 5rem;
   align-items: center;
   justify-content: center;
   border-left: solid var(--bordersize) var(--bordercolor);
-  padding: 8.8rem 0rem;
+  padding: 13rem 6rem;
 
 }
 
@@ -2568,9 +2569,40 @@ display: flex;
 
 }
 
-@media screen and (min-width: 1024px) {
-  
 
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1024px) {
+
+  .logo__img{
+    width: 8rem;
+  }
+  .logo__img--four, .logo__img--two{
+    width: 10rem;
+  }
+
+
+
+
+  .nav__link:hover{
+    color: var(--seccolorblue);
+  }
+  .mobile__hidden1{
+    font-size: 23px;
+  }
+  .language__wrapper:hover{
+    background-color: var(--seccolorblue);
+    border: none;
+    cursor: pointer;
+  }
   .nav__wrapper {
     margin-left: 5em;
     display: flex;
@@ -2579,8 +2611,33 @@ display: flex;
     background: none;
     border: none;
     align-items: center;
-    
-;
+  }
+  .quiz__button--style2:hover{
+    cursor: pointer;
+      background-color: var(--mainbgcolor);
+      color: var(--seccoloryel);
+      border: solid 2px var(--seccoloryel);
+  }
+  .quiz__button--style:hover{
+    cursor: pointer;
+    background-color: var(--mainbgcolor);
+    color: var(--seccolorblue);
+    border: solid 2px var(--seccolorblue);
+  }
+  .tunnel__button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+  .railgame__rail1:hover{
+    cursor: pointer;
+  }
+  .railway__end--button:hover{
+    cursor:default;
+    border: none;
+  }
+  .railway__end--button1:hover{
+    cursor: pointer;
+    border: solid 2px var(--seccolorblue);
   }
   nav{
     width: 100vw;
