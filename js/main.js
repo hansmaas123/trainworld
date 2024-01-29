@@ -270,7 +270,6 @@ const quizQuestionFour = () => {
 }
 const answerRightFour = () => {
     speedCount+=100;
-    console.log(speedCount);
     quizEnd();
 }
 const quizEnd = () => {
@@ -285,7 +284,6 @@ const quizEnd = () => {
     changeGridQuiz.classList.add(("change__grid"));
 
     if (speedCount > 200) {
-        console.log(speedCount);
         quizText.innerHTML = "Congrats! You drove fast enough and passed the barrier in time!"
         speedWrapperWrapper.classList.add("speed__wrapper--endgoodbg");
     } else {
