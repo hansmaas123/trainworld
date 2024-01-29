@@ -2581,7 +2581,9 @@ display: flex;
 
 
 @media screen and (min-width: 1024px) {
-
+  .ch3__p1{
+    margin-top: 15rem;
+  }
   .logo__img{
     width: 8rem;
   }

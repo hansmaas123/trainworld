@@ -521,6 +521,8 @@ const trackClickHandler = () => {
 
 
 const trackProgress = (railNumber) => {
+    track.style.animation = "none";
+
     version++;
     track.src = `${import.meta.env.BASE_URL}/railgamev${version}.png`;
     document.querySelector(".railgame__rail"+railNumber).style.opacity = "0";
