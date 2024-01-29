@@ -653,7 +653,6 @@ body {
 }
 
 .ch1__p4 {
-  /* margin-top: -40rem; */
   overflow-x: hidden;
   margin-bottom: 4rem;
   width: 100vw;
@@ -1129,7 +1128,6 @@ body {
   border: solid var(--bordersize) var(--bordercolor);
   height: fit-content;
   width: 100vw;
-  /* margin-top: 16rem; */
 }
 
 .speed__wrapper--endgoodbg {
@@ -1501,9 +1499,7 @@ body {
   grid-row: 1;
   border: solid var(--bordersize) var(--bordercolor);
   background-repeat: no-repeat;
-  background-position: 20% 0%;
-  /* padding-top: 6rem; */
-  
+  background-position: 20% 0%;  
 }
 .ch3__title{
   color: var(--maincolor);
@@ -1676,7 +1672,6 @@ color: var(--seccolorblue);
 .seats{
   width: 100vw;
   overflow: hidden;
-  /* transform-origin: 50% 30%; */
 }
 .seats__wrapper{
   width: 100vw;
