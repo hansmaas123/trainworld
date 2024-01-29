@@ -1,7 +1,6 @@
 import "/css/style.css";
 
-let scroll = true;
-let stop = false;
+
 let speedCount = 0;
 let version = 0;
 let railArray = [];
@@ -270,12 +269,14 @@ const quizQuestionFour = () => {
 
 }
 const answerRightFour = () => {
-    speedCount += 100;
+    speedCount+=100;
+    console.log(speedCount);
     quizEnd();
 }
 const quizEnd = () => {
     button1.removeEventListener("click", answerRightFour);
     button2.removeEventListener("click", quizEnd);
+    speed.innerHTML = speedCount + " KM/H";
 
     button1.style.opacity = 0;
     button2.style.opacity = 0;
@@ -284,6 +285,7 @@ const quizEnd = () => {
     changeGridQuiz.classList.add(("change__grid"));
 
     if (speedCount > 200) {
+        console.log(speedCount);
         quizText.innerHTML = "Congrats! You drove fast enough and passed the barrier in time!"
         speedWrapperWrapper.classList.add("speed__wrapper--endgoodbg");
     } else {
