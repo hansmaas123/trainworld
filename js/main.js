@@ -580,7 +580,13 @@ const trainLightAnimation = () => {
         }
     })
 }
-
+const hideLoadingScreenHandler = () => {
+    const loadIcon = document.querySelector(".loading__screen");
+    loadIcon.classList.add("load__icon--hidden");
+    loadIcon.addEventListener("transitionend", () => {
+        loadIcon.style.display = "none";
+    });
+};
 
 
 
@@ -592,21 +598,22 @@ const init = () => {
     textAnimator();
     tunnelIllusion();
     // window.onbeforeunload = function () {
-    //     window.scrollTo(0, 0);
-    // }
-    tunnelSwitchHandler();
-    railwayLineHorizontalMove();
-    ch1P4Animation()
-    quizButtonHandler();
-    chapterTwoAnimation();
-    trackRepairHandler();
-    ch1P7Animation()
-    ch2P2Animation()
-    ch2P1Animation()
-    chapterThreeAnimation();
-    ch2P3Animation();
-    trainLightAnimation();
-    seatsMove();
-}
-
-init();
+        //     window.scrollTo(0, 0);
+        // }
+        tunnelSwitchHandler();
+        railwayLineHorizontalMove();
+        ch1P4Animation()
+        quizButtonHandler();
+        chapterTwoAnimation();
+        trackRepairHandler();
+        ch1P7Animation()
+        ch2P2Animation()
+        ch2P1Animation()
+        chapterThreeAnimation();
+        ch2P3Animation();
+        trainLightAnimation();
+        seatsMove();
+        hideLoadingScreenHandler();
+    }
+    
+    init();
