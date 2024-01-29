@@ -29,7 +29,44 @@ html {
 *::after {
   box-sizing: inherit;
 }
+.loading__screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--seccolorblue);
+  transition: opacity 0.75s, visibility 0.75s;
+  z-index: 1;
+}
 
+.load__icon--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading__screen::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid var(--seccoloryel);
+  border-top-color: var(--mainbgcolor);
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
 nav {
   padding: .5rem 1rem;
   background-color: var(--mainbgcolor);
@@ -680,6 +717,7 @@ body {
 .ch1__p5 {
   padding: 1rem;
   margin: 3rem 0rem;
+  margin-top: -10rem;
   overflow: hidden;
   width: 100vw;
 }
@@ -1599,9 +1637,6 @@ color: var(--seccolorblue);
   border-top: none;
   border-bottom: none;
   width: 100vw;
-  background-image: url("./../assets/img/lighttrainbg.svg");
-  background-repeat: no-repeat;
-  background-position: 0% 40%;
 }
 
 .ch3__p3{
@@ -1783,7 +1818,7 @@ color: var(--mainbgcolor);
       width: 60vw;
   
     }
-  
+ 
     .quiz__animation2 {
       width: 60vw;
     }
@@ -2182,7 +2217,7 @@ margin-top: 5rem;
 
 .ch1__p9--text {
   margin: 0;
-  padding: 3rem 0rem;
+  padding: 7rem 0rem;
   padding-right: 2rem;
   width: 24rem;
   border-right: solid var(--bordersize) var(--bordercolor);
