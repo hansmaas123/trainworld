@@ -843,17 +843,25 @@ body {
   font-weight: 600;
   line-height: 90%;
   margin-bottom: 3rem;
+  /* margin-left: 5rem; */
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
 }
 
 .ch1__p6--titlebottom {
   color: var(--seccolorblue);
+  margin-top: .5rem;
 }
 
 .line__date {
   color: var(--maincolor);
   font-size: var(--s1);
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 117%;
   letter-spacing: 0.05625rem;
   margin-bottom: 3rem;
@@ -863,7 +871,7 @@ body {
   color: var(--maincolor);
   font-size: var(--s2);
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 117%;
   letter-spacing: 0.05625rem;
   text-align: center;
@@ -888,9 +896,10 @@ body {
   color: var(--maincolor);
   font-size: var(--s1);
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 117%;
   letter-spacing: 0.05625rem;
+  
 }
 
 .line__arrow--wrapper {
