@@ -838,7 +838,7 @@ body {
 .ch1__p6--title {
   color: var(--seccoloryel);
   font-family: var(--titlefont);
-  font-size: var(--s3);
+  font-size: var(--s2);
   font-style: normal;
   font-weight: 600;
   line-height: 90%;
@@ -2384,7 +2384,9 @@ display: flex;
 .ch2__p3--text1{
   padding-left: 3rem;
 }
-
+.ch1__p6--title {
+  font-size: var(--s3);
+}
 .ch2__p3--img3{
   margin-left: 3rem;
   margin-bottom: -2rem;
